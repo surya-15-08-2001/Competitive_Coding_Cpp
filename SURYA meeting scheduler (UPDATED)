@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+	vector<string> Designation={"CEO","CTO","MANAGER","SR_EMPLOYEE","EMPLOYEE"};
+	int empID,start,end,e_count,temp=0;
+	string designation;
+	vector<int> meetings;
+	vector<int> employees;
+	cout<<"Enter the no. of employees"<<endl;
+	cin>>e_count;
+	cout<<"Enter the employee ids:"<<endl;
+	for(int i=0;i<e_count;i++)
+	{  
+	    cin>>temp;
+	    employees.push_back(temp);
+	}
+	for(int i=0;i<e_count;i++)
+	{   string s;
+	    temp=4;
+	    int id=0,k=0;
+	    while(1)
+	    { 
+	        cout<<"Enter the Designation and empID and end of emplyees to fix an meeting with empId= "<<employees[i]<<". Press 1 if the inputs are over else press 0"<<endl;
+	        cin>>s>>id>>k;
+
+	        auto p=find(Designation.begin(), Designation.end(), s);
+	        int r=p-Designation.begin();
+	       
+	        if(r<=temp)
+	        {  
+
+	            temp=r;
+	            meetings.push_back(id);
+	        }
+	        if(k==1)
+	        { cout<<"Employee number "<<employees[i]<<" is fixed an meeting with "<<meetings.back()<<endl;
+	        break;
+	        }
+	    }
+	   
+	}
+	return 0;
+}
